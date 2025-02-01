@@ -1,10 +1,12 @@
 import time
+from flask import Flask
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager
 
+app = Flask(__name__)
 # Configuração do Selenium
 URL_LOGIN = "https://pooltrack.logicasolucoes.com.br"
 USUARIO = "08938386000199"
@@ -52,3 +54,6 @@ except Exception as e:
     print(f"❌ Erro: {e}")
 finally:
     driver.quit()
+
+if __name__ == "__main__":
+    app.run() 
